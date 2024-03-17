@@ -13,7 +13,7 @@
         "args": ["-p", "x64", "-c", "Debug"]
       },
       "linux": {
-        "command": "make -j2 -s"
+        "command": "make -j4 -s"
       },
       "osx": {
         "command": "make -j2 -s"
