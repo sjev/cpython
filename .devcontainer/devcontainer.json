@@ -13,13 +13,11 @@
     "source=/var/tmp/container-extensions,target=/home/dev/.vscode-server/extensions,type=bind,consistency=cached"
   ],
 
-
   // Features to add to the dev container. More info: https://containers.dev/implementors/features.
   // "features": {},
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
-
 
   // Configure tool-specific properties.
   "customizations": {
@@ -32,7 +30,9 @@
         "mhutchie.git-graph",
         "doi.fileheadercomment",
         "donjayamanne.githistory",
-        "charliermarsh.ruff"
+        "charliermarsh.ruff",
+        "ms-vscode.cpptools",
+        "spmeesseman.vscode-taskexplorer"
       ]
     }
   }
