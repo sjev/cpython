@@ -24,7 +24,20 @@ RUN apt-get install -y \
     tree \
     git \
     make \
-    python3-pip
+    python3-pip \
+    build-essential \
+    libssl-dev zlib1g-dev \
+    libncurses5-dev \
+    libncursesw5-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    libgdbm-dev \
+    libdb5.3-dev \
+    libbz2-dev \
+    libexpat1-dev \
+    liblzma-dev \
+    libffi-dev
+
 
 # cleanup
 RUN rm -rf /var/lib/apt/lists/*
@@ -36,7 +49,7 @@ RUN locale-gen en_US.UTF-8
 
 
 USER ${USERNAME}
-RUN echo 'export PS1="🐳  \[\033[1;36m\]'"python_compiler"' \[\e[33m\]\W\[\e[m\] \[\033[1;36m\]# \[\033[0m\]"' >> ~/.bashrc
+RUN echo 'export PS1="🐳  \[\033[1;36m\]'"cpython"' \[\e[33m\]\W\[\e[m\] \[\033[1;36m\]# \[\033[0m\]"' >> ~/.bashrc
 
 # add local bin to path
 RUN echo "export PATH=\$PATH:/home/${USERNAME}/.local/bin" >> ~/.bashrc
@@ -56,13 +69,11 @@ COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt && rm requirements.txt
 
 
-
-
 # build timestamp
 USER root
 
 
-RUN echo python_compiler >> /build_date.txt && \
+RUN echo cpython >> /build_date.txt && \
     date >> /build_date.txt
 
 USER ${USERNAME}
